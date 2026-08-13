@@ -101,9 +101,15 @@
   }
   .nav-wrap {
     display: flex; align-items: center; justify-content: space-between;
-    padding: 16px 28px;
+    padding: 12px 28px;
   }
   .brand { display: flex; align-items: center; gap: 12px; }
+  .brand-logo {
+    height: 48px;
+    width: auto;
+    object-fit: contain;
+    border-radius: 50%;
+  }
   .brand-text {
     font-family: 'Fraunces', serif;
     font-weight: 700; font-size: 1.3rem;
@@ -287,10 +293,11 @@
 </head>
 <body>
 
-<!-- HEADER & NAVIGATION -->
+<!-- HEADER & NAVIGATION WITH LOGO -->
 <header>
   <div class="nav-wrap container">
     <a href="#home" class="brand">
+      <img src="WhatsApp Image 2026-08-08 at 10.17.58_2.jpeg" alt="HERA Initiative Logo" class="brand-logo">
       <div class="brand-text">
         HERA INITIATIVE
         <span>Health • Equity • Rights • Advocacy</span>
