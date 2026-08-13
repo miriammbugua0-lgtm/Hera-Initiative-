@@ -297,27 +297,19 @@
 <header>
   <div class="nav-wrap container">
     <a href="#home" class="brand">
-      <!-- SVG Emblem rendered directly so no image files are needed -->
       <svg class="brand-logo" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
         <circle cx="50" cy="50" r="48" fill="white" stroke="#002B66" stroke-width="2"/>
-        <!-- Outer Arcs -->
         <path d="M 12 40 A 40 40 0 0 1 88 40" stroke="#0055B8" stroke-width="5" stroke-linecap="round"/>
         <path d="M 88 40 A 40 40 0 0 1 78 82" stroke="#6A1B7B" stroke-width="5" stroke-linecap="round"/>
         <path d="M 78 82 A 40 40 0 0 1 12 40" stroke="#002B66" stroke-width="5" stroke-linecap="round"/>
-        <!-- Medical Cross & Heart -->
         <path d="M 44 14 H 56 V 26 H 44 Z M 38 20 H 62 V 20 H 38 Z" fill="#0055B8"/>
         <path d="M 50 17 C 48 15, 45 17, 50 21 C 55 17, 52 15, 50 17 Z" fill="white"/>
-        <!-- Green Leaves -->
         <path d="M 50 26 C 40 24, 32 30, 42 36 C 48 32, 50 26, 50 26 Z" fill="#3FA34D"/>
         <path d="M 50 26 C 60 24, 68 30, 58 36 C 52 32, 50 26, 50 26 Z" fill="#3FA34D"/>
-        <!-- Scales of Justice -->
         <path d="M 20 34 H 32 M 26 34 V 44 M 20 40 H 22 M 30 40 H 32" stroke="#002B66" stroke-width="2"/>
-        <!-- Woman Silhouette -->
         <path d="M 72 28 C 76 32, 76 38, 72 44 C 78 38, 80 48, 76 56 C 80 44, 78 34, 72 28 Z" fill="#6A1B7B"/>
-        <!-- Supporting Hands -->
         <path d="M 15 60 C 25 80, 45 88, 50 88 C 40 82, 25 70, 18 55 Z" fill="#002B66"/>
         <path d="M 85 60 C 75 80, 55 88, 50 88 C 60 82, 75 70, 82 55 Z" fill="#0055B8"/>
-        <!-- People Figures -->
         <circle cx="38" cy="52" r="3" fill="#0055B8"/>
         <path d="M 38 56 C 30 65, 32 80, 50 86 C 42 75, 42 62, 38 56 Z" fill="#0055B8"/>
         <circle cx="50" cy="46" r="3.5" fill="#6A1B7B"/>
@@ -694,7 +686,7 @@
   </div>
 </section>
 
-<!-- CONTACT US -->
+<!-- CONTACT US WITH MAILTO DIRECT FORM ACTION -->
 <section id="contact" class="section bg-navy">
   <div class="container">
     <div class="sec-head">
@@ -711,10 +703,11 @@
         <p><strong>📧 Email:</strong> herainitiativeorg@gmail.com</p>
       </div>
       <div>
-        <form style="display: flex; flex-direction: column; gap: 12px;">
-          <input type="text" placeholder="Your Name" style="padding: 12px; border-radius: 8px; border: none;" required>
-          <input type="email" placeholder="Your Email" style="padding: 12px; border-radius: 8px; border: none;" required>
-          <textarea placeholder="Your Message" rows="4" style="padding: 12px; border-radius: 8px; border: none;" required></textarea>
+        <!-- Form action triggers user's default email app pre-filled to HERA's address -->
+        <form action="mailto:herainitiativeorg@gmail.com" method="post" enctype="text/plain" style="display: flex; flex-direction: column; gap: 12px;">
+          <input type="text" name="Name" placeholder="Your Name" style="padding: 12px; border-radius: 8px; border: none;" required>
+          <input type="email" name="Email" placeholder="Your Email" style="padding: 12px; border-radius: 8px; border: none;" required>
+          <textarea name="Message" placeholder="Your Message" rows="4" style="padding: 12px; border-radius: 8px; border: none;" required></textarea>
           <button type="submit" class="btn btn-donate">Send Message</button>
         </form>
       </div>
