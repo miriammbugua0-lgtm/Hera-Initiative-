@@ -91,8 +91,6 @@
   .btn-whatsapp:hover { background: #1b5e20; transform: translateY(-2px); color: #fff; }
   .btn-outline { border-color: var(--hera-navy); color: var(--hera-navy); }
   .btn-outline:hover { background: var(--hera-navy); color: #fff; }
-  .btn-outline-white { border-color: #fff; color: #fff; }
-  .btn-outline-white:hover { background: #fff; color: var(--hera-navy); }
 
   /* ---------- Header & Nav ---------- */
   header {
@@ -199,7 +197,6 @@
   .mv-card p.card-body-text { color: rgba(255, 255, 255, 0.95) !important; font-size: 0.98rem; }
   .mv-block + .mv-block { margin-top: 16px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.15); }
 
-  /* Highlight Banner in About Section */
   .goal-highlight {
     background: #fff;
     border-left: 5px solid var(--hera-blue);
@@ -233,7 +230,7 @@
   .thematic-card ul { padding-left: 18px; list-style: disc; margin-top: 12px; }
   .thematic-card li { margin-bottom: 8px; font-size: 0.92rem; color: var(--hera-ink-soft); }
 
-  /* ---------- Priority Groups & Flagship Programs ---------- */
+  /* ---------- Cards & Grid Systems ---------- */
   .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
   .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
   .card-simple {
@@ -245,7 +242,45 @@
     border: 2px solid var(--hera-pink);
   }
 
-  /* ---------- Mama Care & Support Strip (HIGH CONTRAST FIXED) ---------- */
+  /* ---------- Story Cards with Distortion-Free Images ---------- */
+  .story-card {
+    background: #fff;
+    border-radius: 16px;
+    border: 1px solid rgba(0, 43, 102, 0.08);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform .25s ease, box-shadow .25s ease;
+  }
+  .story-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 18px 40px -12px rgba(0, 43, 102, 0.2);
+  }
+  .story-img-wrap {
+    width: 100%;
+    height: 210px;
+    overflow: hidden;
+    background: var(--hera-bg-light);
+  }
+  .story-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform .4s ease;
+  }
+  .story-card:hover .story-img {
+    transform: scale(1.05);
+  }
+  .story-content {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+
+  /* ---------- Mama Care & Support Strip ---------- */
   .mama-banner {
     background: var(--hera-purple); color: #ffffff; border-radius: 24px;
     padding: 40px; display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 32px; align-items: center;
@@ -274,7 +309,7 @@
   }
   .mama-list li:last-child { margin-bottom: 0; }
 
-  /* ---------- Approach (Listen, Educate, Connect) ---------- */
+  /* ---------- Approach ---------- */
   .approach-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; margin-top: 20px; }
   .step-box {
     background: #fff; border-radius: 12px; padding: 20px; text-align: center;
@@ -317,7 +352,7 @@
 </head>
 <body>
 
-<!-- HEADER & NAVIGATION WITH CLIENT LOGO -->
+<!-- HEADER & NAVIGATION -->
 <header>
   <div class="nav-wrap container">
     <a href="#home" class="brand">
@@ -340,7 +375,7 @@
   </div>
 </header>
 
-<!-- HOME / HERO SECTION -->
+<!-- HERO SECTION -->
 <section id="home" class="hero">
   <div class="container hero-container">
     <div class="hero-copy">
@@ -593,7 +628,7 @@
   </div>
 </section>
 
-<!-- MAMA CARE HIGHLIGHT STRIP (HIGH CONTRAST TEXT UPDATED) -->
+<!-- MAMA CARE HIGHLIGHT STRIP -->
 <section class="section" style="padding: 0 0 80px;">
   <div class="container">
     <div class="mama-banner">
@@ -615,7 +650,7 @@
   </div>
 </section>
 
-<!-- GET INVOLVED (CONNECTED DIRECTLY TO UNIVERSAL WHATSAPP API) -->
+<!-- GET INVOLVED -->
 <section id="get-involved" class="section bg-light">
   <div class="container">
     <div class="sec-head center">
@@ -644,7 +679,7 @@
   </div>
 </section>
 
-<!-- NEWS & STORIES -->
+<!-- NEWS & STORIES (ALL STORIES STRICTLY SET TO .jpeg) -->
 <section class="section">
   <div class="container">
     <div class="sec-head">
@@ -653,20 +688,35 @@
       <p>Real stories of health, dignity, and resilience.</p>
     </div>
     <div class="grid-3">
-      <div class="card-simple">
-        <span class="eyebrow">Outreach Story</span>
-        <h4>Taking SRHR Education to Rural Adolescents</h4>
-        <p style="font-size: 0.9rem;">How community dialogues are helping young people access accurate health information...</p>
+      <div class="story-card">
+        <div class="story-img-wrap">
+          <img src="SRHR (2).jpeg" alt="Taking SRHR Education to Rural Adolescents" class="story-img">
+        </div>
+        <div class="story-content">
+          <span class="eyebrow">Outreach Story</span>
+          <h4>Taking SRHR Education to Rural Adolescents</h4>
+          <p style="font-size: 0.9rem;">How community dialogues and distribution of dignity kits are helping young people access accurate health information...</p>
+        </div>
       </div>
-      <div class="card-simple">
-        <span class="eyebrow">Mama Care</span>
-        <h4>Supporting Young Mothers in Maternal Care</h4>
-        <p style="font-size: 0.9rem;">Connecting pregnant teens with skilled delivery services and SHA registration...</p>
+      <div class="story-card">
+        <div class="story-img-wrap">
+          <img src="Empowering Young Mothers.jpeg" alt="Supporting Young Mothers in Maternal Care" class="story-img">
+        </div>
+        <div class="story-content">
+          <span class="eyebrow">Mama Care</span>
+          <h4>Supporting Young Mothers in Maternal Care</h4>
+          <p style="font-size: 0.9rem;">Connecting pregnant teens with skilled delivery services, mentorship, and SHA registration...</p>
+        </div>
       </div>
-      <div class="card-simple">
-        <span class="eyebrow">Climate & Health</span>
-        <h4>Building Climate-Resilient Health Action</h4>
-        <p style="font-size: 0.9rem;">Community conservation activities addressing health issues caused by climate change...</p>
+      <div class="story-card">
+        <div class="story-img-wrap">
+          <img src="Building Climate Resilient.jpeg" alt="Building Climate-Resilient Health Action" class="story-img">
+        </div>
+        <div class="story-content">
+          <span class="eyebrow">Climate & Health</span>
+          <h4>Building Climate-Resilient Health Action</h4>
+          <p style="font-size: 0.9rem;">Community conservation activities and tree-planting initiatives addressing health issues caused by climate change...</p>
+        </div>
       </div>
     </div>
   </div>
@@ -691,7 +741,7 @@
   </div>
 </section>
 
-<!-- CONTACT US WITH MAILTO & DIRECT WHATSAPP ACTION -->
+<!-- CONTACT US -->
 <section id="contact" class="section bg-navy">
   <div class="container">
     <div class="sec-head">
