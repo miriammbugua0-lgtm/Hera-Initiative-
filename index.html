@@ -242,7 +242,7 @@
     border: 2px solid var(--hera-pink);
   }
 
-  /* ---------- Story Cards with Distortion-Free Images ---------- */
+  /* ---------- Story Cards ---------- */
   .story-card {
     background: #fff;
     border-radius: 16px;
@@ -280,7 +280,47 @@
     flex-grow: 1;
   }
 
-  /* ---------- Mama Care & Support Strip ---------- */
+  /* ---------- Dedicated Photo Gallery ---------- */
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+  }
+  .gallery-item {
+    background: #fff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    border: 1px solid rgba(0, 43, 102, 0.08);
+    transition: transform .3s ease;
+  }
+  .gallery-item:hover {
+    transform: translateY(-5px);
+  }
+  .gallery-img-wrap {
+    width: 100%;
+    height: 230px;
+    overflow: hidden;
+  }
+  .gallery-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform .4s ease;
+  }
+  .gallery-item:hover .gallery-img-wrap img {
+    transform: scale(1.08);
+  }
+  .gallery-caption {
+    padding: 16px 20px;
+    font-size: 0.9rem;
+    color: var(--hera-navy);
+    background: #fff;
+    border-top: 1px solid rgba(0, 43, 102, 0.05);
+  }
+
+  /* ---------- Mama Care Strip ---------- */
   .mama-banner {
     background: var(--hera-purple); color: #ffffff; border-radius: 24px;
     padding: 40px; display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 32px; align-items: center;
@@ -368,6 +408,7 @@
       <a href="#thematic-areas">Thematic Areas</a>
       <a href="#programs">Programs</a>
       <a href="#impact">Our Impact</a>
+      <a href="#gallery">Gallery</a>
       <a href="#get-involved">Get Involved</a>
       <a href="#contact">Contact</a>
     </nav>
@@ -650,8 +691,105 @@
   </div>
 </section>
 
+<!-- DEDICATED PHOTO GALLERY SECTION -->
+<section id="gallery" class="section bg-light">
+  <div class="container">
+    <div class="sec-head center">
+      <span class="eyebrow" style="font-weight: bold; font-size: 0.85rem;">Community Photo Gallery</span>
+      <h2>Our Work in Action</h2>
+      <p>A glimpse into our community dialogues, health outreaches, maternal support, and environmental conservation projects.</p>
+    </div>
+
+    <div class="gallery-grid">
+      <div class="gallery-item">
+        <div class="gallery-img-wrap">
+          <img src="SRHR (2).jpeg" alt="Empowering Adolescents Through SRH & Menstrual Health">
+        </div>
+        <div class="gallery-caption">
+          <strong>Empowering Adolescents Through SRH & Menstrual Health 💜</strong>
+          <p style="font-size: 0.82rem; margin: 6px 0 0 0; color: var(--hera-ink-soft); font-weight: normal;">
+            Empowering adolescents with SRH knowledge and sanitary towel distribution to promote menstrual dignity and keep girls in school.
+          </p>
+        </div>
+      </div>
+
+      <div class="gallery-item">
+        <div class="gallery-img-wrap">
+          <img src="Empowering Young Mothers.jpeg" alt="Empowering Young Mothers">
+        </div>
+        <div class="gallery-caption">
+          <strong>Empowering Young Mothers 💜</strong>
+          <p style="font-size: 0.82rem; margin: 6px 0 0 0; color: var(--hera-ink-soft); font-weight: normal;">
+            Supporting young mothers with healthcare, counseling, and guidance to help them return to school and rebuild their future.
+          </p>
+        </div>
+      </div>
+
+      <div class="gallery-item">
+        <div class="gallery-img-wrap">
+          <img src="Building Climate Resilient.jpeg" alt="Healthy Environment, Healthy Communities">
+        </div>
+        <div class="gallery-caption">
+          <strong>Healthy Environment, Healthy Communities 🌍💚</strong>
+          <p style="font-size: 0.82rem; margin: 6px 0 0 0; color: var(--hera-ink-soft); font-weight: normal;">
+            Promoting environmental conservation, waste management, and climate action as investments in community wellbeing.
+          </p>
+        </div>
+      </div>
+
+      <div class="gallery-item">
+        <div class="gallery-img-wrap">
+          <img src="Maternal &Child health.jpeg" alt="Maternal and Child Health">
+        </div>
+        <div class="gallery-caption">
+          <strong>Maternal & Child Health 🩺</strong>
+          <p style="font-size: 0.82rem; margin: 6px 0 0 0; color: var(--hera-ink-soft); font-weight: normal;">
+            Empowering families in rural communities with maternal education covering antenatal care, safe delivery, and newborn care.
+          </p>
+        </div>
+      </div>
+
+      <div class="gallery-item">
+        <div class="gallery-img-wrap">
+          <img src="SRHR.jpeg" alt="Faith, Family & Healthy Choices">
+        </div>
+        <div class="gallery-caption">
+          <strong>Faith, Family & Healthy Choices 💜</strong>
+          <p style="font-size: 0.82rem; margin: 6px 0 0 0; color: var(--hera-ink-soft); font-weight: normal;">
+            Partnering with faith communities to support family planning and compassionate parenting rooted in dignity and love.
+          </p>
+        </div>
+      </div>
+
+      <div class="gallery-item">
+        <div class="gallery-img-wrap">
+          <img src="SRHR&Dignity.jpeg" alt="SRH & Dignity">
+        </div>
+        <div class="gallery-caption">
+          <strong>SRH & Dignity 🌸</strong>
+          <p style="font-size: 0.82rem; margin: 6px 0 0 0; color: var(--hera-ink-soft); font-weight: normal;">
+            Providing accurate SRH guidance and sanitary products so every girl has equal opportunities and the dignity to thrive.
+          </p>
+        </div>
+      </div>
+
+      <div class="gallery-item">
+        <div class="gallery-img-wrap">
+          <img src="Climate & health.jpg" alt="Community Dialogue on Preconception & Malaria in Pregnancy">
+        </div>
+        <div class="gallery-caption">
+          <strong>Preconception & Malaria Dialogue 💚</strong>
+          <p style="font-size: 0.82rem; margin: 6px 0 0 0; color: var(--hera-ink-soft); font-weight: normal;">
+            Creating safe community dialogue spaces to discuss preconception care, early care-seeking, and malaria prevention in pregnancy.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- GET INVOLVED -->
-<section id="get-involved" class="section bg-light">
+<section id="get-involved" class="section">
   <div class="container">
     <div class="sec-head center">
       <span class="eyebrow" style="font-weight: bold; font-size: 0.85rem;">Get Involved</span>
@@ -679,8 +817,8 @@
   </div>
 </section>
 
-<!-- NEWS & STORIES (ALL STORIES STRICTLY SET TO .jpeg) -->
-<section class="section">
+<!-- NEWS & STORIES -->
+<section class="section bg-light">
   <div class="container">
     <div class="sec-head">
       <span class="eyebrow" style="font-weight: bold; font-size: 0.85rem;">News & Stories</span>
