@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HERA Initiative — Health. Equity. Rights. Advocacy. Climate Justice.</title>
+
+<!-- GOOGLE SEARCH FAVICON & TAB LOGO -->
+<link rel="icon" type="image/jpeg" sizes="48x48" href="logo.jpg">
+<link rel="apple-touch-icon" href="logo.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700;800&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    /* Official HERA Brand Palette */
+    --hera-navy: #002B66;
+    --hera-navy-deep: #001A40;
+    --hera-blue: #0055B8;
+    --hera-purple: #6A1B7B;
+    --hera-orange: #E65100;
+    --hera-green: #2E7D32;
+    --hera-pink: #D81B60;
+    
+    /* Neutrals & UI */
+    --hera-blush: #FBF5F8;
+    --hera-paper: #FFFFFF;
+    --hera-ink: #1C2530;
+    --hera-ink-soft: #514F63;
+    --hera-bg-light: #F4F6F9;
+    --shadow: 0 12px 30px -10px rgba(0, 43, 102, 0.15);
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    color: var(--hera-ink);
+    background: var(--hera-paper);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    color: var(--hera-navy);
+    margin: 0 0 12px 0;
+    line-height: 1.2;
+  }
+  p { margin: 0 0 16px 0; color: var(--hera-ink-soft); }
+  a { color: inherit; text-decoration: none; }
+  ul { margin: 0; padding: 0; list-style: none; }
+  
+  .eyebrow {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--hera-purple);
+    font-weight: 600;
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  .container { max-width: 1160px; margin: 0 auto; padding: 0 28px; }
+  .section { padding: 80px 0; }
+  .bg-light { background-color: var(--hera-bg-light); }
+  .bg-blush { background-color: var(--hera-blush); }
+  .bg-navy { background-color: var(--hera-navy); color: #fff; }
+  .bg-navy h2, .bg-navy h3 { color: #fff; }
+  .bg-navy p { color: rgba(255,255,255,0.8); }
+
+  /* ---------- Buttons ---------- */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 14px 28px;
+    border-radius: 999px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 0.95rem;
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: all .25s ease;
+  }
+  .btn-primary { background: var(--hera-blue); color: #fff; }
+  .btn-primary:hover { background: var(--hera-navy); transform: translateY(-2px); }
+  .btn-secondary { background: var(--hera-purple); color: #fff; }
+  .btn-secondary:hover { background: var(--hera-navy); transform: translateY(-2px); }
+  .btn-donate { background: var(--hera-orange); color: #fff; box-shadow: 0 10px 20px -8px rgba(230,81,0,0.5); }
+  .btn-donate:hover { background: #c64400; transform: translateY(-2px); }
+  .btn-whatsapp { background: var(--hera-green); color: #fff; box-shadow: 0 10px 20px -8px rgba(46,125,50,0.4); }
+  .btn-whatsapp:hover { background: #1b5e20; transform: translateY(-2px); color: #fff; }
+  .btn-outline { border-color: var(--hera-navy); color: var(--hera-navy); background: #fff; }
+  .btn-outline:hover { background: var(--hera-navy); color: #fff; }
+
+  /* ---------- Header & Nav ---------- */
+  header {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(0, 43, 102, 0.08);
+  }
+  .nav-wrap {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 14px 28px;
+  }
+  .brand { display: flex; align-items: center; gap: 12px; }
+  .brand-logo {
+    height: 52px;
+    width: 52px;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+  .brand-text {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700; font-size: 1.3rem;
+    color: var(--hera-navy);
+    line-height: 1;
+  }
+  nav.links { display: flex; gap: 20px; align-items: center; }
+  nav.links a { font-size: 0.92rem; font-weight: 600; white-space: nowrap; transition: opacity 0.2s ease; }
+  
+  /* Alternating Header Navigation Colors */
+  nav.links a.nav-blue { color: var(--hera-blue); }
+  nav.links a.nav-orange { color: var(--hera-orange); }
+  nav.links a:hover { opacity: 0.8; }
+
+  /* Social Links in Header & Footer */
+  .social-nav-wrap {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-left: 8px;
+    padding-left: 12px;
+    border-left: 2px solid rgba(0, 43, 102, 0.1);
+  }
+  .social-icon-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--hera-bg-light);
+    color: var(--hera-navy);
+    transition: all 0.25s ease;
+  }
+  .social-icon-btn:hover {
+    background: var(--hera-blue);
+    color: #fff;
+    transform: translateY(-2px);
+  }
+  .social-icon-btn svg {
+    width: 18px;
+    height: 18px;
+    fill: currentColor;
+  }
+  
+  /* ---------- HERO SECTION (CLEAN & SLEEK) ---------- */
+  .hero {
+    position: relative;
+    overflow: hidden;
+    min-height: 520px;
+    display: flex;
+    align-items: center;
+    padding: 90px 0 80px;
+    background: radial-gradient(circle at 90% -10%, rgba(106, 27, 123, 0.08), transparent 50%),
+                radial-gradient(circle at 10% 40%, rgba(0, 85, 184, 0.08), transparent 50%),
+                var(--hera-paper);
+  }
+  .hero-container {
+    position: relative;
+    z-index: 3;
+    max-width: 860px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .hero h1 {
+    font-size: clamp(2.3rem, 5vw, 4rem);
+    font-weight: 800;
+  }
+  .hero h1 em {
+    font-style: normal;
+    color: var(--hera-blue);
+  }
+  .hero .lede {
+    font-size: 1.15rem;
+    margin: 16px auto 0;
+    max-width: 65ch;
+    color: var(--hera-ink-soft);
+    font-weight: 400;
+  }
+  .hero-cta { 
+    display: flex; 
+    gap: 16px; 
+    margin-top: 28px; 
+    justify-content: center;
+    flex-wrap: wrap; 
+  }
+
+  /* ---------- Section Headers ---------- */
+  .sec-head { max-width: 680px; margin-bottom: 48px; }
+  .sec-head h2 { font-size: clamp(1.8rem, 3vw, 2.5rem); font-weight: 700; }
+  .center { text-align: center; margin-left: auto; margin-right: auto; }
+
+  /* ---------- About Section ---------- */
+  .about-grid { 
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    gap: 36px; 
+    align-items: stretch; 
+  }
+  .about-left-col {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .mv-card {
+    background: var(--hera-navy); 
+    color: #fff;
+    border-radius: 20px; 
+    padding: 32px; 
+    position: relative; 
+    overflow: hidden;
+    display: flex; 
+    flex-direction: column; 
+    justify-content: space-between;
+    height: 100%;
+  }
+  .mv-card h3 { color: #fff; font-size: 1.25rem; font-weight: 600; }
+  .mv-card p.card-body-text { color: rgba(255, 255, 255, 0.95) !important; font-size: 0.98rem; }
+  .mv-block + .mv-block { margin-top: 16px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.15); }
+
+  .goal-highlight {
+    background: #fff;
+    border-left: 5px solid var(--hera-blue);
+    padding: 20px 24px;
+    border-radius: 0 16px 16px 0;
+    box-shadow: var(--shadow);
+    margin-top: 20px;
+  }
+  .goal-highlight p {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--hera-navy);
+    line-height: 1.4;
+  }
+
+  /* ---------- Thematic Areas ---------- */
+  .thematic-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; }
+  .thematic-card {
+    background: #fff; border-radius: 16px; padding: 32px;
+    border: 1px solid rgba(0, 43, 102, 0.08); box-shadow: var(--shadow);
+    transition: transform .25s ease;
+  }
+  .thematic-card:hover { transform: translateY(-4px); }
+  .thematic-card.border-health { border-top: 5px solid var(--hera-blue); }
+  .thematic-card.border-equity { border-top: 5px solid var(--hera-navy); }
+  .thematic-card.border-rights { border-top: 5px solid var(--hera-purple); }
+  .thematic-card.border-advocacy { border-top: 5px solid var(--hera-orange); }
+  .thematic-card.border-climate { border-top: 5px solid var(--hera-green); }
+  .thematic-card ul { padding-left: 18px; list-style: disc; margin-top: 12px; }
+  .thematic-card li { margin-bottom: 8px; font-size: 0.92rem; color: var(--hera-ink-soft); }
+
+  /* ---------- Cards & Grid Systems ---------- */
+  .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
+  .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
+  .card-simple {
+    background: #fff; padding: 28px; border-radius: 16px;
+    border: 1px solid rgba(0, 43, 102, 0.06);
+  }
+  .mama-care-card {
+    background: linear-gradient(135deg, #fff 0%, var(--hera-blush) 100%);
+    border: 2px solid var(--hera-pink);
+  }
+
+  /* ---------- Infinite Automatic Sliding Carousel ---------- */
+  .slider-container {
+    overflow: hidden;
+    width: 100%;
+    position: relative;
+    padding: 20px 0;
+  }
+  .slider-track {
+    display: flex;
+    gap: 24px;
+    width: calc(340px * 18);
+    animation: autoSlide 45s linear infinite;
+  }
+  .slider-track:hover {
+    animation-play-state: paused;
+  }
+  @keyframes autoSlide {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(-344px * 9)); }
+  }
+  .gallery-item {
+    width: 320px;
+    flex-shrink: 0;
+    background: #fff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    border: 1px solid rgba(0, 43, 102, 0.08);
+    transition: transform .3s ease;
+  }
+  .gallery-item:hover {
+    transform: translateY(-5px);
+  }
+  .gallery-img-wrap {
+    width: 100%;
+    height: 230px;
+    overflow: hidden;
+  }
+  .gallery-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform .4s ease;
+  }
+  .gallery-item:hover .gallery-img-wrap img {
+    transform: scale(1.08);
+  }
+  .gallery-caption {
+    padding: 16px 20px;
+    font-size: 0.9rem;
+    color: var(--hera-navy);
+    background: #fff;
+    border-top: 1px solid rgba(0, 43, 102, 0.05);
+  }
+  .gallery-caption strong {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+  }
+
+  /* ---------- Mama Care Strip ---------- */
+  .mama-banner {
+    background: var(--hera-purple); color: #ffffff; border-radius: 24px;
+    padding: 40px; display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 32px; align-items: center;
+    box-shadow: 0 15px 35px -10px rgba(106, 27, 123, 0.3);
+  }
+  .mama-banner h2, .mama-banner h3 { color: #ffffff !important; }
+  .mama-banner p { color: rgba(255, 255, 255, 0.95) !important; font-size: 1.05rem; }
+  .mama-eyebrow {
+    color: #FFC1E3 !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.14em;
+    font-size: 0.8rem;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+  }
+  .mama-list {
+    background: rgba(255, 255, 255, 0.12);
+    padding: 24px;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+  }
+  .mama-list li {
+    margin-bottom: 12px;
+    font-size: 0.98rem;
+    color: #ffffff !important;
+  }
+  .mama-list li:last-child { margin-bottom: 0; }
+
+  /* ---------- Approach ---------- */
+  .approach-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; margin-top: 20px; }
+  .step-box {
+    background: #fff; border-radius: 12px; padding: 20px; text-align: center;
+    border-top: 4px solid var(--hera-blue); box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+  }
+  .step-box h4 { font-size: 1.1rem; margin-bottom: 6px; font-weight: 600; }
+
+  /* ---------- Impact ---------- */
+  .impact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
+  .impact-stat {
+    background: #fff; padding: 28px; border-radius: 16px; text-align: center;
+    box-shadow: var(--shadow);
+  }
+  .impact-stat .number {
+    font-family: 'Poppins', sans-serif; font-size: 2.5rem; font-weight: 800; color: var(--hera-blue); margin-bottom: 4px;
+  }
+
+  /* ---------- Donate & Contact ---------- */
+  .donate-box {
+    background: var(--hera-blush); border: 2px solid var(--hera-pink);
+    border-radius: 20px; padding: 36px; text-align: center; max-width: 600px; margin: 0 auto;
+  }
+  .paybill-info {
+    background: #fff; padding: 16px 24px; border-radius: 12px;
+    display: inline-block; margin: 16px 0; font-family: 'IBM Plex Mono', monospace;
+    font-weight: 600; color: var(--hera-navy);
+  }
+
+  /* ---------- Footer ---------- */
+  footer { background: var(--hera-navy-deep); color: #fff; padding: 48px 0 24px; border-top: 1px solid rgba(255,255,255,0.1); }
+  .footer-row { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
+  .footer-text { color: rgba(255,255,255,0.6); font-size: 0.88rem; }
+  .footer-socials { display: flex; gap: 12px; }
+  .footer-socials .social-icon-btn { background: rgba(255,255,255,0.1); color: #fff; }
+  .footer-socials .social-icon-btn:hover { background: var(--hera-orange); color: #fff; }
+
+  /* ---------- Responsive Adjustments ---------- */
+  @media (max-width: 900px) {
+    .about-grid, .mama-banner { grid-template-columns: 1fr; }
+    nav.links { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER & NAVIGATION -->
+<header>
+  <div class="nav-wrap container">
+    <a href="#home" class="brand">
+      <img src="logo.jpg" alt="HERA Initiative Logo" class="brand-logo">
+      <div class="brand-text">
+        HERA INITIATIVE
+      </div>
+    </a>
+    <nav class="links">
+      <a href="#home" class="nav-blue">Home</a>
+      <a href="#about" class="nav-orange">About Us</a>
+      <a href="#thematic-areas" class="nav-blue">Thematic Areas</a>
+      <a href="#programs" class="nav-orange">Programs</a>
+      <a href="#impact" class="nav-blue">Our Impact</a>
+      <a href="#gallery" class="nav-orange">Gallery</a>
+      <a href="#get-involved" class="nav-blue">Get Involved</a>
+      <a href="#contact" class="nav-orange">Contact</a>
+      
+      <!-- Social Media Header Links -->
+      <div class="social-nav-wrap">
+        <a href="https://x.com/Herainititaive" target="_blank" rel="noopener" class="social-icon-btn" title="Follow us on X (Twitter)">
+          <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        </a>
+        <a href="https://www.instagram.com/herainitiative_organisation?igsi=MXdtZmJkMGh0OTNmdQ==" target="_blank" rel="noopener" class="social-icon-btn" title="Follow us on Instagram">
+          <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        </a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO SECTION -->
+<section id="home" class="hero">
+  <div class="container hero-container">
+    <span class="eyebrow">Health • Equity • Rights • Advocacy • Climate Justice</span>
+    <h1>Healthy Communities.<br>Equal Rights.<br><em>A Sustainable Future.</em></h1>
+    <p class="lede">HERA Initiative is a community-based organization (CBO) working alongside underserved communities in Kilifi, Kenya to improve health, promote equity, and protect health-related rights.</p>
+    <div class="hero-cta">
+      <a href="#programs" class="btn btn-primary">Our Work</a>
+      <a href="#get-involved" class="btn btn-outline">Partner With Us</a>
+      <a href="#donate" class="btn btn-donate">Support HERA</a>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT US -->
+<section id="about" class="section bg-light">
+  <div class="container">
+    <div class="sec-head" style="margin-bottom: 24px;">
+      <span class="eyebrow">About Us</span>
+    </div>
+    <div class="about-grid">
+      <div class="about-left-col">
+        <div>
+          <p style="font-size: 1.05rem; line-height: 1.6; color: var(--hera-ink); margin-bottom: 12px;">
+            HERA Initiative is a grassroots CBO committed to advancing Health, Equity, Rights, Advocacy and Climate Justice through community-led health interventions.
+          </p>
+          <p style="font-size: 1.05rem; line-height: 1.6; color: var(--hera-ink); margin-bottom: 12px;">
+            We believe that good health is not only about access to healthcare.
+          </p>
+          <p style="font-size: 1.05rem; line-height: 1.6; color: var(--hera-ink); margin-bottom: 16px;">
+            It is also about equality, dignity, human rights, a safe environment, and the ability of communities to participate in decisions affecting their wellbeing.
+          </p>
+        </div>
+        
+        <div class="goal-highlight">
+          <p>
+            Our work connects these issues around one central goal: <span style="color: var(--hera-blue);">Better health and wellbeing for underserved communities.</span>
+          </p>
+        </div>
+      </div>
+      
+      <div class="mv-card">
+        <div class="mv-block">
+          <span class="eyebrow" style="color: #FFB2DD;">Our Mission</span>
+          <h3>To improve health & wellbeing</h3>
+          <p class="card-body-text">By promoting equitable access to health information, protecting health-related rights, strengthening community participation, and addressing environmental factors affecting health.</p>
+        </div>
+        <div class="mv-block">
+          <span class="eyebrow" style="color: #FFB2DD;">Our Vision</span>
+          <h3>Empowered & resilient communities</h3>
+          <p class="card-body-text">Where everyone can access quality healthcare, enjoy their human rights, and live with dignity.</p>
+        </div>
+        <div class="mv-block">
+          <span class="eyebrow" style="color: #FFB2DD;">Our Core Values</span>
+          <p class="card-body-text" style="font-weight: 600; margin-bottom: 0;">
+            Equity • Dignity • Inclusion • Integrity • Accountability • Compassion • Community Leadership
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OUR THEMATIC AREAS -->
+<section id="thematic-areas" class="section">
+  <div class="container">
+    <div class="sec-head center">
+      <span class="eyebrow" style="font-weight: bold; font-size: 0.85rem;">OUR THEMATIC AREAS</span>
+      <p style="margin-top: 8px;">Health is our central identity, powered through four vital pillars and climate resilience.</p>
+    </div>
+    <div class="thematic-grid">
+      <div class="thematic-card border-health">
+        <span class="eyebrow">🩺 HEALTH</span>
+        <h3>HEALTH</h3>
+        <p><strong>Putting community health first.</strong> Promoting access to information, prevention, and essential services for adolescents, young mothers, and vulnerable families.</p>
+        <ul>
+          <li><strong>SRHR & Health Education:</strong> Accurate sexual and reproductive health information.</li>
+          <li><strong>Maternal & Young Mothers:</strong> Health education, referrals, and support for pregnant teens.</li>
+          <li><strong>Health Outreaches & Referrals:</strong> Bringing preventive services and facility linkages closer.</li>
+        </ul>
+      </div>
+
+      <div class="thematic-card border-equity">
+        <span class="eyebrow">⚖️ HEALTH EQUITY</span>
+        <h3>HEALTH EQUITY</h3>
+        <p><strong>Healthcare for those left behind.</strong> Addressing social, geographical, and economic barriers to healthcare access.</p>
+        <ul>
+          <li><strong>Underserved Communities:</strong> Reaching rural and hard-to-reach populations.</li>
+          <li><strong>Vulnerable Groups:</strong> Prioritizing adolescents, young mothers, and women.</li>
+          <li><strong>Service Access:</strong> Linking families to health and social support systems.</li>
+        </ul>
+      </div>
+
+      <div class="thematic-card border-rights">
+        <span class="eyebrow">🕊️ HEALTH RIGHTS</span>
+        <h3>HEALTH RIGHTS</h3>
+        <p><strong>Health is a right, not a privilege.</strong> Promoting dignity, equality, and protection from violence or rights violations.</p>
+        <ul>
+          <li><strong>Health & SRHR Rights:</strong> Educating on healthcare access and decision-making rights.</li>
+          <li><strong>GBV Prevention:</strong> Awareness, protection, and survivor referrals.</li>
+          <li><strong>Safeguarding:</strong> Creating safe environments for children and women.</li>
+        </ul>
+      </div>
+
+      <div class="thematic-card border-advocacy">
+        <span class="eyebrow">📢 HEALTH ADVOCACY</span>
+        <h3>HEALTH ADVOCACY</h3>
+        <p><strong>Community voices into action.</strong> Enabling women and youth to lead health-related decisions and policy conversations.</p>
+        <ul>
+          <li><strong>Community Dialogues:</strong> Platforms to discuss local health challenges.</li>
+          <li><strong>Youth & Women Advocacy:</strong> Active leadership in health priorities.</li>
+          <li><strong>Stakeholder Engagement:</strong> Partnering with local health facilities.</li>
+        </ul>
+      </div>
+
+      <div class="thematic-card border-climate">
+        <span class="eyebrow">🌱 CLIMATE JUSTICE & HEALTH</span>
+        <h3>CLIMATE JUSTICE & HEALTH</h3>
+        <p><strong>A healthy environment is essential.</strong> Connecting climate resilience with community health and disease prevention.</p>
+        <ul>
+          <li><strong>Climate-Health Education:</strong> Raising awareness on climate risks.</li>
+          <li><strong>Environmental Conservation:</strong> Cleanups, tree planting, and sanitation.</li>
+          <li><strong>Resilience Advocacy:</strong> Protecting health in changing climate conditions.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRIORITY GROUPS & FLAGSHIP PROGRAMS -->
+<section id="programs" class="section bg-light">
+  <div class="container">
+    <div class="sec-head">
+      <span class="eyebrow" style="font-weight: bold; font-size: 0.85rem;">Our Focus & Flagship Programs</span>
+      <p style="margin-top: 8px;">Delivering targeted community interventions through clear, structured flagship initiatives.</p>
+    </div>
+
+    <h4 style="margin-bottom: 16px;">Our Priority Groups</h4>
+    <div class="grid-4" style="margin-bottom: 48px;">
+      <div class="card-simple">
+        <strong>Adolescents & Young People</strong>
+        <p style="font-size: 0.9rem; margin-top: 6px;">Access to SRHR knowledge, health education, and youth empowerment.</p>
+      </div>
+      <div class="card-simple">
+        <strong>Pregnant Teens & Young Mothers</strong>
+        <p style="font-size: 0.9rem; margin-top: 6px;">Maternal health guidance, antenatal/postnatal care referrals, and dignity.</p>
+      </div>
+      <div class="card-simple">
+        <strong>Women & Girls</strong>
+        <p style="font-size: 0.9rem; margin-top: 6px;">Addressing gender equity, GBV protection, and health rights advocacy.</p>
+      </div>
+      <div class="card-simple">
+        <strong>Underserved Communities</strong>
+        <p style="font-size: 0.9rem; margin-top: 6px;">Eliminating geographical and financial barriers for rural populations.</p>
+      </div>
+    </div>
+
+    <h4>Flagship Programs</h4>
+    <div class="grid-3" style="margin-top: 16px;">
+      <div class="card-simple">
+        <span class="eyebrow">Program</span>
+        <h3>SRHR & Young People's Health</h3>
+        <p>Empowering adolescents with accurate reproductive health education and safe spaces for decision-making.</p>
+      </div>
+      
+      <div class="card-simple mama-care-card">
+        <span class="eyebrow" style="color: var(--hera-pink);">Featured Program</span>
+        <h3 style="color: var(--hera-pink);">Mama Care Program</h3>
+        <p>A specialized program supporting pregnant teens and young mothers with antenatal/postnatal guidance, SHA registration, breastfeeding support, and maternal health referrals.</p>
+      </div>
+
+      <div class="card-simple">
+        <span class="eyebrow">Program</span>
+        <h3>Community Health Outreach</h3>
+        <p>Bringing screening, basic preventive services, and healthcare linkages directly to hard-to-reach areas.</p>
+      </div>
+
+      <div class="card-simple">
+        <span class="eyebrow">Program</span>
+        <h3>Health Rights & Advocacy</h3>
+        <p>Training community champions to understand their rights, report GBV, and dialogue with health stakeholders.</p>
+      </div>
+
+      <div class="card-simple">
+        <span class="eyebrow">Program</span>
+        <h3>Climate & Health Resilience</h3>
+        <p>Leading environmental health education and community conservation to prevent climate-sensitive health risks.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OUR IMPACT & STRATEGY -->
+<section id="impact" class="section">
+  <div class="container">
+    <div class="sec-head center">
+      <span class="eyebrow" style="font-weight: bold; font-size: 0.85rem;">Our Impact & Strategy</span>
+      <p style="margin-top: 8px;">Driven by Community Action: Listen. Educate. Connect. Advocate. Partner.</p>
+    </div>
+
+    <div class="impact-grid" style="margin-bottom: 60px;">
+      <div class="impact-stat">
+        <div class="number">10k+</div>
+        <strong>Health Education</strong>
+        <p style="font-size: 0.85rem;">People gaining practical health knowledge.</p>
+      </div>
+      <div class="impact-stat">
+        <div class="number">50+</div>
+        <strong>Outreaches Conducted</strong>
+        <p style="font-size: 0.85rem;">Taking information to underserved communities.</p>
+      </div>
+      <div class="impact-stat">
+        <div class="number">1,200+</div>
+        <strong>Young Mothers Supported</strong>
+        <p style="font-size: 0.85rem;">Maternal healthcare linkages & referrals made.</p>
+      </div>
+      <div class="impact-stat">
+        <div class="number">100%</div>
+        <strong>Community Leadership</strong>
+        <p style="font-size: 0.85rem;">Locally-driven health solutions.</p>
+      </div>
+    </div>
+
+    <div class="sec-head center" style="margin-bottom: 24px;">
+      <h3>Our Approach</h3>
+    </div>
+    <div class="approach-steps">
+      <div class="step-box">
+        <h4>Listen</h4>
+        <p style="font-size: 0.85rem;">We listen to community voices to identify local health gaps.</p>
+      </div>
+      <div class="step-box">
+        <h4>Educate</h4>
+        <p style="font-size: 0.85rem;">We provide practical, understandable health and rights education.</p>
+      </div>
+      <div class="step-box">
+        <h4>Connect</h4>
+        <p style="font-size: 0.85rem;">We link people with facilities, maternal care, and GBV referrals.</p>
+      </div>
+      <div class="step-box">
+        <h4>Advocate</h4>
+        <p style="font-size: 0.85rem;">We amplify community priorities with local health stakeholders.</p>
+      </div>
+      <div class="step-box">
+        <h4>Partner</h4>
+        <p style="font-size: 0.85rem;">We collaborate for sustainable, long-term impact.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MAMA CARE HIGHLIGHT STRIP -->
+<section class="section" style="padding: 0 0 80px;">
+  <div class="container">
+    <div class="mama-banner">
+      <div>
+        <span class="eyebrow mama-eyebrow">Special Focus Initiative</span>
+        <h2>Hey Mama — You Are Not Alone.</h2>
+        <p>Every mother deserves the care, support, and respect she needs for a healthy pregnancy and a brighter tomorrow. Invest in moms. Invest in generations.</p>
+        <a href="#donate" class="btn btn-donate" style="margin-top: 10px;">Support Young Mothers</a>
+      </div>
+      <div>
+        <ul class="mama-list">
+          <li>🌸 <strong>Antenatal:</strong> Regular check-ups & screening.</li>
+          <li>🌸 <strong>Delivery:</strong> Skilled care & delivery referrals.</li>
+          <li>🌸 <strong>Postnatal:</strong> Breastfeeding & newborn support.</li>
+          <li>🌸 <strong>SHA Registration:</strong> Access to social health coverage.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DEDICATED AUTOMATIC SLIDING PHOTO GALLERY -->
+<section id="gallery" class="section bg-light" style="overflow: hidden;">
+  <div class="container">
+    <div class="sec-head center">
+      <span class="eyebrow" style="font-weight: bold; font-size: 0.85rem;">Community Photo Gallery</span>
+      <h2>Our Work in Action</h2>
+      <p>A continuous glance at our community dialogues, health outreaches, maternal support, and environmental conservation projects (hover to pause).</p>
+    </div>
+  </div>
+
+  <div class="slider-container">
+    <div class="slider-track">
+      <!-- Original Set -->
+      <div class="gallery-item">
+        <div class="gallery-img-wrap"><img src="SRHR (2).jpeg" alt="Empowering Adolescents"></div>
+        <div class="gallery-caption">
+          <strong>Empowering Adolescents Through SRH & Menstrual Health 💜</strong>
+          <p style="font-size: 0.82rem; margin: 6px 0 0 0; color: var(--hera-ink-soft); font-weight: normal;">Empowering adolescents with SRH knowledge and sanitary towel distribution to promote menstrual dignity.</p>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-img-wrap"><img src="Empowering Young Mothers.jpeg" alt="Empowering Young Mothers"></div>
+        <div class="gallery-caption">
+          <strong>Empowering Young Mothers 💜</strong>
+          <p style="font-size: 0.82rem; margin: 6px 0 0 0; color: var(--hera-ink-soft); font-weight: normal;">Supporting young mothers with healthcare, counseling, and guidance to rebuild their future.</p>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-img-wrap"><img src="Building Climate Resilient.jpeg" alt="Healthy Environment"></div>
+        <div class="gallery-caption">
+          <strong>Healthy Environment, Healthy Communities 🌍💚</strong>
+          <p style="font-size: 0.82rem; margin: 6px 0 0 0; color: var(--hera-ink-soft); font-weight: normal;">Promoting environmental conservation, waste management, and climate action.</p>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-img-wrap"><img src="Maternal &Child health.jpeg" alt="Maternal and Child Health"></div>
+        <div class="gallery-caption">
+          <strong>Maternal & Child Health 🩺</strong>
+          <p style="font-size: 0.82rem; margin: 6px 0 0 0; color: var(--hera-ink-soft); font-weight: normal;">Empowering families in rural communities with maternal education covering safe delivery.</p>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-img-wrap"><img src="SRHR.jpeg" alt="Faith, Family"></div>
+        <div class="gallery-caption">
+          <strong>Faith, Family & Healthy Choices 💜</strong>
+          <p style="font-size: 0.82rem; margin: 6px 0 0 0; color: var(--hera-ink-soft); font-weight: normal;">Partnering with faith communities to support family planning and compassionate parenting.</p>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-img-wrap"><img src="SRHR&Dignity.jpeg" alt="SRH & Dignity"></div>
+        <div class="gallery-caption">
+          <strong>SRH & Dignity 🌸</strong>
+          <p style="font-size: 0.82rem; margin: 6px 0 0 0; color: var(--hera-ink-soft); font-weight: normal;">Providing accurate SRH guidance and sanitary products so every girl has equal opportunities.</p>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-img-wrap"><img src="Climate & health.jpeg" alt="Preconception Dialogue"></div>
+        <div class="gallery-caption">
+          <strong>Preconception & Malaria Dialogue 💚</strong>
+          <p style="font-size: 0.82rem; margin: 6px 0 0 0; color: var(--hera-ink-soft); font-weight: normal;">Creating safe community dialogue spaces to discuss preconception care and malaria prevention.</p>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-img-wrap"><img src="Faith & Adolescent SRH Family Conversations 1.jpeg" alt="Faith & Adolescent SRH Conversations"></div>
+        <div class="gallery-caption">
+          <strong>Faith & Adolescent SRH Conversations 💙</strong>
+          <p style="font-size: 0.82rem; margin: 6px 0 0 0; color: var(--hera-ink-soft); font-weight: normal;">Engaging with Faith to Action Organization to promote safe spaces for open, respectful adolescent SRHR dialogues.</p>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-img-wrap"><img src="Faith & Adolescent SRH Family Conversations 2.jpeg" alt="Faith, Dialogue & Family Health"></div>
+        <div class="gallery-caption">
+          <strong>Faith, Dialogue & Family Health 💙</strong>
+          <p style="font-size: 0.82rem; margin: 6px 0 0 0; color: var(--hera-ink-soft); font-weight: normal;">Bringing together parents, faith leaders, and youth to build informed families and healthier futures.</p>
+        </div>
+      </div>
+
+      <!-- Duplicated Loop Set for Seamless Infinite Animation -->
+      <div class="gallery-item">
+        <div class="gallery-img-wrap"><img src="SRHR (2).jpeg" alt="Empowering Adolescents"></div>
+        <div class="gallery-caption">
+          <strong>Empowering Adolescents Through SRH & Menstrual Health 💜</strong>
+          <p style="font-size: 0.82rem; margin: 6px 0 0 0; color: var(--hera-ink-soft); font-weight: normal;">Empowering adolescents with SRH knowledge and sanitary towel distribution to promote menstrual dignity.</p>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-img-wrap"><img src="Empowering Young Mothers.jpeg" alt="Empowering Young Mothers"></div>
+        <div class="gallery-caption">
+          <strong>Empowering Young Mothers 💜</strong>
+          <p style="font-size: 0.82rem; margin: 6px 0 0 0; color: var(--hera-ink-soft); font-weight: normal;">Supporting young mothers with healthcare, counseling, and guidance to rebuild their future.</p>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-img-wrap"><img src="Building Climate Resilient.jpeg" alt="Healthy Environment"></div>
+        <div class="gallery-caption">
+          <strong>Healthy Environment, Healthy Communities 🌍💚</strong>
+          <p style="font-size: 0.82rem; margin: 6px 0 0 0; color: var(--hera-ink-soft); font-weight: normal;">Promoting environmental conservation, waste management, and climate action.</p>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-img-wrap"><img src="Maternal &Child health.jpeg" alt="Maternal and Child Health"></div>
+        <div class="gallery-caption">
+          <strong>Maternal & Child Health 🩺</strong>
+          <p style="font-size: 0.82rem; margin: 6px 0 0 0; color: var(--hera-ink-soft); font-weight: normal;">Empowering families in rural communities with maternal education covering safe delivery.</p>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-img-wrap"><img src="SRHR.jpeg" alt="Faith, Family"></div>
+        <div class="gallery-caption">
+          <strong>Faith, Family & Healthy Choices 💜</strong>
+          <p style="font-size: 0.82rem; margin: 6px 0 0 0; color: var(--hera-ink-soft); font-weight: normal;">Partnering with faith communities to support family planning and compassionate parenting.</p>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-img-wrap"><img src="SRHR&Dignity.jpeg" alt="SRH & Dignity"></div>
+        <div class="gallery-caption">
+          <strong>SRH & Dignity 🌸</strong>
+          <p style="font-size: 0.82rem; margin: 6px 0 0 0; color: var(--hera-ink-soft); font-weight: normal;">Providing accurate SRH guidance and sanitary products so every girl has equal opportunities.</p>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-img-wrap"><img src="Climate & health.jpeg" alt="Preconception Dialogue"></div>
+        <div class="gallery-caption">
+          <strong>Preconception & Malaria Dialogue 💚</strong>
+          <p style="font-size: 0.82rem; margin: 6px 0 0 0; color: var(--hera-ink-soft); font-weight: normal;">Creating safe community dialogue spaces to discuss preconception care and malaria prevention.</p>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-img-wrap"><img src="Faith & Adolescent SRH Family Conversations 1.jpeg" alt="Faith & Adolescent SRH Conversations"></div>
+        <div class="gallery-caption">
+          <strong>Faith & Adolescent SRH Conversations 💙</strong>
+          <p style="font-size: 0.82rem; margin: 6px 0 0 0; color: var(--hera-ink-soft); font-weight: normal;">Engaging with Faith to Action Organization to promote safe spaces for open, respectful adolescent SRHR dialogues.</p>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-img-wrap"><img src="Faith & Adolescent SRH Family Conversations 2.jpeg" alt="Faith, Dialogue & Family Health"></div>
+        <div class="gallery-caption">
+          <strong>Faith, Dialogue & Family Health 💙</strong>
+          <p style="font-size: 0.82rem; margin: 6px 0 0 0; color: var(--hera-ink-soft); font-weight: normal;">Bringing together parents, faith leaders, and youth to build informed families and healthier futures.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GET INVOLVED -->
+<section id="get-involved" class="section">
+  <div class="container">
+    <div class="sec-head center">
+      <span class="eyebrow" style="font-weight: bold; font-size: 0.85rem;">Get Involved</span>
+      <h2>Be Part of the Change</h2>
+      <p>Stronger together. We welcome collaboration with CBOs, health professionals, development partners, and volunteers.</p>
+    </div>
+    
+    <div class="grid-3">
+      <div class="card-simple center">
+        <h3>Partner With Us</h3>
+        <p>Work with HERA to design, fund, or implement community health, equity, and climate initiatives.</p>
+        <a href="https://api.whatsapp.com/send?phone=254792558632&text=Hello%20HERA%20Initiative!%20I%20would%20like%20to%20partner%20with%20your%20organization." target="_blank" class="btn btn-whatsapp" style="margin-top: 12px;">💬 Become a Partner</a>
+      </div>
+      <div class="card-simple center">
+        <h3>Volunteer</h3>
+        <p>Contribute your time, clinical skills, or expertise to our community outreach and dialogues.</p>
+        <a href="https://api.whatsapp.com/send?phone=254792558632&text=Hello%20HERA%20Initiative!%20I%20am%20interested%20in%20volunteering%20with%20you." target="_blank" class="btn btn-whatsapp" style="margin-top: 12px;">💬 Join as Volunteer</a>
+      </div>
+      <div class="card-simple center">
+        <h3>Advocate</h3>
+        <p>Help raise awareness about health rights, young mothers' dignity, and climate-related health risks.</p>
+        <a href="https://api.whatsapp.com/send?phone=254792558632&text=Hello%20HERA%20Initiative!%20I%20want%20to%20get%20involved%20and%20advocate%20for%20your%20causes." target="_blank" class="btn btn-whatsapp" style="margin-top: 12px;">💬 Get Involved</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SUPPORT HERA / DONATE -->
+<section id="donate" class="section bg-blush">
+  <div class="container">
+    <div class="donate-box">
+      <span class="eyebrow" style="color: var(--hera-pink);">Support HERA</span>
+      <h2>Help Us Reach More Communities</h2>
+      <p>Every contribution helps us bring health information, maternal referrals, and advocacy closer to those who need it most.</p>
+      
+      <div class="paybill-info">
+        Donate via M-Pesa<br>
+        <span style="color: var(--hera-orange); font-size: 1.2rem;">Paybill: 400200</span><br>
+        <span style="color: var(--hera-purple); font-size: 1.1rem;">Account: 01178383</span>
+      </div>
+
+      <p style="font-size: 0.85rem; color: var(--hera-ink-soft);">When we support a mama, we build a better tomorrow for all.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT US -->
+<section id="contact" class="section bg-navy">
+  <div class="container">
+    <div class="sec-head">
+      <span class="eyebrow" style="color: var(--hera-pink);">Contact Us</span>
+      <h2>Let's Work Together for Healthier Communities</h2>
+      <p>Get in touch to partner, support, volunteer, or learn more about HERA Initiative.</p>
+    </div>
+    
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 32px; align-items: start;">
+      <div>
+        <h3>HERA Initiative</h3>
+        <p>Health • Equity • Rights • Advocacy • Climate Justice</p>
+        <p><strong>📍 Location:</strong> Kilifi, Kenya</p>
+        <p><strong>📞 Phone:</strong> +254 792 558 632</p>
+        <p><strong>📧 Email:</strong> herainitiativeorg@gmail.com</p>
+        <a href="https://api.whatsapp.com/send?phone=254792558632&text=Hello%20HERA%20Initiative!%20I%20would%20like%20to%20get%20in%20touch." target="_blank" class="btn btn-whatsapp" style="margin-top: 16px;">💬 Chat on WhatsApp</a>
+      </div>
+      <div>
+        <form action="mailto:herainitiativeorg@gmail.com" method="post" enctype="text/plain" style="display: flex; flex-direction: column; gap: 12px;">
+          <input type="text" name="Name" placeholder="Your Name" style="padding: 12px; border-radius: 8px; border: none;" required>
+          <input type="email" name="Email" placeholder="Your Email" style="padding: 12px; border-radius: 8px; border: none;" required>
+          <textarea name="Message" placeholder="Your Message" rows="4" style="padding: 12px; border-radius: 8px; border: none;" required></textarea>
+          <button type="submit" class="btn btn-donate">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container footer-row">
+    <div>
+      <strong style="color:#fff; font-family:'Poppins', serif; font-size: 1.1rem;">HERA Initiative</strong>
+      <p class="footer-text">Advancing health, equity, rights and climate justice through community action in Kilifi, Kenya.</p>
+    </div>
+    
+    <!-- Footer Social Links -->
+    <div class="footer-socials">
+      <a href="https://x.com/Herainititaive" target="_blank" rel="noopener" class="social-icon-btn" title="X (Twitter)">
+        <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+      </a>
+      <a href="https://www.instagram.com/herainitiative_organisation?igsi=MXdtZmJkMGh0OTNmdQ==" target="_blank" rel="noopener" class="social-icon-btn" title="Instagram">
+        <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+      </a>
+    </div>
+
+    <div class="footer-text">
+      &copy; 2026 HERA Initiative. All Rights Reserved.
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
